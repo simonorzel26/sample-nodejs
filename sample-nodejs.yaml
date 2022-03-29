@@ -1,0 +1,18 @@
+alerts:
+- rule: DEPLOYMENT_FAILED
+- rule: DOMAIN_FAILED
+name: sample-nodejs
+region: fra
+services:
+- environment_slug: node-js
+  git:
+    branch: main
+    repo_clone_url: git@github.com:simonorzel26/sample-nodejs.git
+  http_port: 8080
+  instance_count: 1
+  instance_size_slug: basic-xxs
+  name: sample-nodejs
+  routes:
+  - path: /
+  run_command: yarn start
+  source_dir: /
